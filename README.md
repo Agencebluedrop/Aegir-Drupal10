@@ -1,6 +1,12 @@
+Publication collaborative entre l'agence bluedrop.fr et Evolix.
+https://www.bluedrop.fr/content/usine-sites-installons-aegir-pour-drupal-10
+https://wiki.evolix.org/HowtoAegir
+
 # Installation
-Pré-requis : Debian 10 ou Debian 11 avec PHP par défaut, on passera en PHP 8.2 dans un second temps (pour Debian 12 voir installation sous Debian 12)
-Préparer un service MySQL permettant ainsi au package Debian aegir3-hostmaster va notamment créer un utilisateur MySQL aegir_root. Si MySQL n’est pas utilisable sans mot de passe via l’utilisateur Unix root, le package aegir3-hostmaster va vous demander un identifiant MySQL “admin”.
+Pré-requis : Debian 10 ou Debian 11 avec PHP par défaut, on passera en PHP 8.2 dans un second temps (pour Debian 12 voir installation sous Debian 12).
+
+Préparer un service MySQL permettant ainsi au package Debian aegir3-hostmaster va notamment créer un utilisateur MySQL aegir_root. 
+Si MySQL n’est pas utilisable sans mot de passe via l’utilisateur Unix root, le package aegir3-hostmaster va vous demander un identifiant MySQL “admin”.
 ```
 echo "deb http://pub.evolix.org/evolix aegir main" > /etc/apt/sources.list.d/aegir.list
 wget https://pub.evolix.org/evolix/pub.asc -O /etc/apt/trusted.gpg.d/pub_evolix.asc
