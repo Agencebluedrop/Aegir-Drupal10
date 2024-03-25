@@ -18,11 +18,11 @@ apt update && apt install aegir3
 ls -d /var/aegir/hostmaster-* /var/aegir/hostmaster-7.x-3.192+nmu1
 /usr/local/bin/drush version
 ``` 
-la derniere commande doit donner:  Drush Version   :  8.4.8
-Note 1 : le dépôt APT Aegir n’existant plus, nous hébergeons les vieux paquets Aegir récupérés via Koumbit (merci!!)
-Note 2 : sur certaines installations, il faut relancer une 2e fois l’installation ou lancer un hack en parallèle de l’installation du type screen -S aegir-dpkg-workaround -dm bash -c "while true; do systemctl daemon-reload; done" puis pkill -9 screen && screen -wipe à la fin
-On peut ensuite activer différents modules via l’interface web d’Aegir : options pour Git, Let’s Encrypt, etc.
-Si l’on utilise pas “Composer” pour déployer, nous conseillons de désactiver le module “Aegir Platform Composer” (sans cela on constate que le code Drupal n’était pas déployé sur les infra multi-serveurs).
+la derniere commande doit donner:  Drush Version   :  8.4.8  
+Note 1 : le dépôt APT Aegir n’existant plus, nous hébergeons les vieux paquets Aegir récupérés via Koumbit (merci!!)  
+Note 2 : sur certaines installations, il faut relancer une 2e fois l’installation ou lancer un hack en parallèle de l’installation du type screen -S aegir-dpkg-workaround -dm bash -c "while true; do systemctl daemon-reload; done" puis pkill -9 screen && screen -wipe à la fin  
+On peut ensuite activer différents modules via l’interface web d’Aegir : options pour Git, Let’s Encrypt, etc.  
+Si l’on utilise pas “Composer” pour déployer, nous conseillons de désactiver le module “Aegir Platform Composer” (sans cela on constate que le code Drupal n’était pas déployé sur les infra multi-serveurs).  
 
 # Installation sous Debian 12
 Il est intéressant d’installer Aegir sous Debian 12 afin d’avoir un système qui soit supporté au moins jusqu’en 2026.
