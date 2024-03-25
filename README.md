@@ -155,3 +155,6 @@ Enfin, il faut appliquer le patch suivant sur le fichier /var/aegir/.config/com
 ```
 patch /var/aegir/.config/composer/vendor/drush/drush/lib/Drush/Boot/DrupalBoot.php < DrupalBoot.php.patch
 ```
+
+[https://www.bluedrop.fr/content/usine-sites-installons-aegir-pour-drupal-10](https://www.bluedrop.fr/content/usine-sites-installons-aegir-pour-drupal-10)  
+[https://wiki.evolix.org/HowtoAegir](https://wiki.evolix.org/HowtoAegir)
