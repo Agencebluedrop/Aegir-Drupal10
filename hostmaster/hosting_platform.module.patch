@@ -1,0 +1,24 @@
+--- /var/aegir/hostmaster-7.x-3.192+nmu1/profiles/hostmaster/modules/aegir/hosting/platform/hosting_platform.module.old 2024-02-20 13:15:41.490390915 +0100
++++ /var/aegir/hostmaster-7.x-3.192+nmu1/profiles/hostmaster/modules/aegir/hosting/platform/hosting_platform.module     2024-02-20 13:18:07.850720426 +0100
+@@ -647,13 +647,13 @@
+     }
+
+     // Make sure the path is unique. Remote servers can't have the same path to a platform that is in use by another server.
+-    $exists = hosting_platform_path_exists($node->publish_path);
+-    if ($exists) {
+-      form_set_error('publish_path',
+-        t('Path is already in use by platform %name. Platform paths must be unique across all servers.',
+-        array('%name' => $result->name))
+-      );
+-    }
++    //$exists = hosting_platform_path_exists($node->publish_path);
++    //if ($exists) {
++    //  form_set_error('publish_path',
++    //    t('Path is already in use by platform %name. Platform paths must be unique across all servers.',
++    //    array('%name' => $result->name))
++    //  );
++    //}
+
+     if (is_null($node->web_server)) {
+       form_set_error('web_server', t('Platform needs to be associated with a webserver. Make sure you have a verified webserver on this Aegir install!'));
+

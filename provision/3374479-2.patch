@@ -1,0 +1,144 @@
+diff --git a/Provision/Config/Drupal/provision_drupal_settings_6.tpl.php b/Provision/Config/Drupal/provision_drupal_settings_6.tpl.php
+index 6001497a..7b7aaec1 100644
+--- a/Provision/Config/Drupal/provision_drupal_settings_6.tpl.php
++++ b/Provision/Config/Drupal/provision_drupal_settings_6.tpl.php
+@@ -59,19 +59,19 @@ if (isset($_SERVER['db_name'])) {
+    * places.
+    */
+   if (function_exists('apache_setenv')) {
+-    apache_setenv('db_type', null);
+-    apache_setenv('db_user', null);
+-    apache_setenv('db_passwd', null);
+-    apache_setenv('db_host', null);
+-    apache_setenv('db_port', null);
+-    apache_setenv('db_name', null);
++    apache_setenv('db_type', '');
++    apache_setenv('db_user', '');
++    apache_setenv('db_passwd', '');
++    apache_setenv('db_host', '');
++    apache_setenv('db_port', '');
++    apache_setenv('db_name', '');
+     // no idea why they are also in REDIRECT_foo, but they are
+-    apache_setenv('REDIRECT_db_type', null);
+-    apache_setenv('REDIRECT_db_user', null);
+-    apache_setenv('REDIRECT_db_passwd', null);
+-    apache_setenv('REDIRECT_db_host', null);
+-    apache_setenv('REDIRECT_db_port', null);
+-    apache_setenv('REDIRECT_db_name', null);
++    apache_setenv('REDIRECT_db_type', '');
++    apache_setenv('REDIRECT_db_user', '');
++    apache_setenv('REDIRECT_db_passwd', '');
++    apache_setenv('REDIRECT_db_host', '');
++    apache_setenv('REDIRECT_db_port', '');
++    apache_setenv('REDIRECT_db_name', '');
+   }
+   unset($_SERVER['db_type']);
+   unset($_SERVER['db_user']);
+diff --git a/Provision/Config/Drupal/provision_drupal_settings_7.tpl.php b/Provision/Config/Drupal/provision_drupal_settings_7.tpl.php
+index f3278530..d6daab01 100644
+--- a/Provision/Config/Drupal/provision_drupal_settings_7.tpl.php
++++ b/Provision/Config/Drupal/provision_drupal_settings_7.tpl.php
+@@ -65,19 +65,19 @@ if (isset($_SERVER['db_name'])) {
+    * places.
+    */
+   if (function_exists('apache_setenv')) {
+-    apache_setenv('db_type', null);
+-    apache_setenv('db_user', null);
+-    apache_setenv('db_passwd', null);
+-    apache_setenv('db_host', null);
+-    apache_setenv('db_port', null);
+-    apache_setenv('db_name', null);
++    apache_setenv('db_type', '');
++    apache_setenv('db_user', '');
++    apache_setenv('db_passwd', '');
++    apache_setenv('db_host', '');
++    apache_setenv('db_port', '');
++    apache_setenv('db_name', '');
+     // no idea why they are also in REDIRECT_foo, but they are
+-    apache_setenv('REDIRECT_db_type', null);
+-    apache_setenv('REDIRECT_db_user', null);
+-    apache_setenv('REDIRECT_db_passwd', null);
+-    apache_setenv('REDIRECT_db_host', null);
+-    apache_setenv('REDIRECT_db_port', null);
+-    apache_setenv('REDIRECT_db_name', null);
++    apache_setenv('REDIRECT_db_type', '');
++    apache_setenv('REDIRECT_db_user', '');
++    apache_setenv('REDIRECT_db_passwd', '');
++    apache_setenv('REDIRECT_db_host', '');
++    apache_setenv('REDIRECT_db_port', '');
++    apache_setenv('REDIRECT_db_name', '');
+   }
+   unset($_SERVER['db_type']);
+   unset($_SERVER['db_user']);
+diff --git a/Provision/Config/Drupal/provision_drupal_settings_8.tpl.php b/Provision/Config/Drupal/provision_drupal_settings_8.tpl.php
+index f52e3c6f..ca9eab93 100644
+--- a/Provision/Config/Drupal/provision_drupal_settings_8.tpl.php
++++ b/Provision/Config/Drupal/provision_drupal_settings_8.tpl.php
+@@ -64,19 +64,19 @@ if (isset($_SERVER['db_name'])) {
+    * places.
+    */
+   if (function_exists('apache_setenv')) {
+-    apache_setenv('db_type', null);
+-    apache_setenv('db_user', null);
+-    apache_setenv('db_passwd', null);
+-    apache_setenv('db_host', null);
+-    apache_setenv('db_port', null);
+-    apache_setenv('db_name', null);
++    apache_setenv('db_type', '');
++    apache_setenv('db_user', '');
++    apache_setenv('db_passwd', '');
++    apache_setenv('db_host', '');
++    apache_setenv('db_port', '');
++    apache_setenv('db_name', '');
+     // no idea why they are also in REDIRECT_foo, but they are
+-    apache_setenv('REDIRECT_db_type', null);
+-    apache_setenv('REDIRECT_db_user', null);
+-    apache_setenv('REDIRECT_db_passwd', null);
+-    apache_setenv('REDIRECT_db_host', null);
+-    apache_setenv('REDIRECT_db_port', null);
+-    apache_setenv('REDIRECT_db_name', null);
++    apache_setenv('REDIRECT_db_type', '');
++    apache_setenv('REDIRECT_db_user', '');
++    apache_setenv('REDIRECT_db_passwd', '');
++    apache_setenv('REDIRECT_db_host', '');
++    apache_setenv('REDIRECT_db_port', '');
++    apache_setenv('REDIRECT_db_name', '');
+   }
+   unset($_SERVER['db_type']);
+   unset($_SERVER['db_user']);
+diff --git a/Provision/Config/Drupal/provision_drupal_settings_9.tpl.php b/Provision/Config/Drupal/provision_drupal_settings_9.tpl.php
+index 617583b1..1f0f0b23 100644
+--- a/Provision/Config/Drupal/provision_drupal_settings_9.tpl.php
++++ b/Provision/Config/Drupal/provision_drupal_settings_9.tpl.php
+@@ -64,19 +64,19 @@ if (isset($_SERVER['db_name'])) {
+    * places.
+    */
+   if (function_exists('apache_setenv')) {
+-    apache_setenv('db_type', null);
+-    apache_setenv('db_user', null);
+-    apache_setenv('db_passwd', null);
+-    apache_setenv('db_host', null);
+-    apache_setenv('db_port', null);
+-    apache_setenv('db_name', null);
++    apache_setenv('db_type', '');
++    apache_setenv('db_user', '');
++    apache_setenv('db_passwd', '');
++    apache_setenv('db_host', '');
++    apache_setenv('db_port', '');
++    apache_setenv('db_name', '');
+     // no idea why they are also in REDIRECT_foo, but they are
+-    apache_setenv('REDIRECT_db_type', null);
+-    apache_setenv('REDIRECT_db_user', null);
+-    apache_setenv('REDIRECT_db_passwd', null);
+-    apache_setenv('REDIRECT_db_host', null);
+-    apache_setenv('REDIRECT_db_port', null);
+-    apache_setenv('REDIRECT_db_name', null);
++    apache_setenv('REDIRECT_db_type', '');
++    apache_setenv('REDIRECT_db_user', '');
++    apache_setenv('REDIRECT_db_passwd', '');
++    apache_setenv('REDIRECT_db_host', '');
++    apache_setenv('REDIRECT_db_port', '');
++    apache_setenv('REDIRECT_db_name', '');
+   }
+   unset($_SERVER['db_type']);
+   unset($_SERVER['db_user']);

@@ -1,0 +1,5 @@
+49c49,50
+<     $pass = crypt($pass);
+---
+>     $salt = substr(str_replace('+', '.', base64_encode(pack('N4', mt_rand(), mt_rand(), mt_rand(), mt_rand()))), 0, 22);
+>     $pass = crypt($pass,$salt);

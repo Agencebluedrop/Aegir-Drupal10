@@ -1,0 +1,324 @@
+diff --git a/core/lib/Drupal/Core/Logger/LoggerChannel.php b/core/lib/Drupal/Core/Logger/LoggerChannel.php
+index ec5702f9..6778f43f 100644
+--- a/core/lib/Drupal/Core/Logger/LoggerChannel.php
++++ b/core/lib/Drupal/Core/Logger/LoggerChannel.php
+@@ -91,7 +91,7 @@ public function __construct($channel) {
+   /**
+    * {@inheritdoc}
+    */
+-  public function log($level, string|\Stringable $message, array $context = []): void {
++  public function log($level, $message, array $context = []) {
+     if ($this->callDepth == self::MAX_CALL_DEPTH) {
+       return;
+     }
+diff --git a/core/lib/Drupal/Core/Logger/RfcLoggerTrait.php b/core/lib/Drupal/Core/Logger/RfcLoggerTrait.php
+index def2e7ff..0152efe2 100644
+--- a/core/lib/Drupal/Core/Logger/RfcLoggerTrait.php
++++ b/core/lib/Drupal/Core/Logger/RfcLoggerTrait.php
+@@ -17,62 +17,62 @@ trait RfcLoggerTrait {
+   /**
+    * {@inheritdoc}
+    */
+-  public function emergency(string|\Stringable $message, array $context = []): void {
++  public function emergency($message, array $context = []) {
+     $this->log(RfcLogLevel::EMERGENCY, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  public function alert(string|\Stringable $message, array $context = []): void {
++  public function alert($message, array $context = []) {
+     $this->log(RfcLogLevel::ALERT, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  public function critical(string|\Stringable $message, array $context = []): void {
++  public function critical($message, array $context = []) {
+     $this->log(RfcLogLevel::CRITICAL, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  public function error(string|\Stringable $message, array $context = []): void {
++  public function error($message, array $context = []) {
+     $this->log(RfcLogLevel::ERROR, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  public function warning(string|\Stringable $message, array $context = []): void {
++  public function warning($message, array $context = []) {
+     $this->log(RfcLogLevel::WARNING, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  public function notice(string|\Stringable $message, array $context = []): void {
++  public function notice($message, array $context = []) {
+     $this->log(RfcLogLevel::NOTICE, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  public function info(string|\Stringable $message, array $context = []): void {
++  public function info($message, array $context = []) {
+     $this->log(RfcLogLevel::INFO, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  public function debug(string|\Stringable $message, array $context = []): void {
++  public function debug($message, array $context = []) {
+     $this->log(RfcLogLevel::DEBUG, $message, $context);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+-  abstract public function log($level, string|\Stringable $message, array $context = []): void;
++  abstract public function log($level, $message, array $context = []);
+ 
+ }
+diff --git a/core/modules/dblog/src/Logger/DbLog.php b/core/modules/dblog/src/Logger/DbLog.php
+index c2219fd0..4207a5c9 100644
+--- a/core/modules/dblog/src/Logger/DbLog.php
++++ b/core/modules/dblog/src/Logger/DbLog.php
+@@ -52,7 +52,7 @@ public function __construct(Connection $connection, LogMessageParserInterface $p
+   /**
+    * {@inheritdoc}
+    */
+-  public function log($level, string|\Stringable $message, array $context = []): void {
++  public function log($level, $message, array $context = []) {
+     // Remove backtrace and exception since they may contain an unserializable variable.
+     unset($context['backtrace'], $context['exception']);
+ 
+diff --git a/vendor/psr/log/src/LoggerInterface.php b/vendor/psr/log/src/LoggerInterface.php
+index b3a24b5f..b4d062b9 100644
+--- a/vendor/psr/log/src/LoggerInterface.php
++++ b/vendor/psr/log/src/LoggerInterface.php
+@@ -27,7 +27,7 @@ interface LoggerInterface
+      *
+      * @return void
+      */
+-    public function emergency(string|\Stringable $message, array $context = []): void;
++    public function emergency(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Action must be taken immediately.
+@@ -40,7 +40,7 @@ public function emergency(string|\Stringable $message, array $context = []): voi
+      *
+      * @return void
+      */
+-    public function alert(string|\Stringable $message, array $context = []): void;
++    public function alert(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Critical conditions.
+@@ -52,7 +52,7 @@ public function alert(string|\Stringable $message, array $context = []): void;
+      *
+      * @return void
+      */
+-    public function critical(string|\Stringable $message, array $context = []): void;
++    public function critical(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Runtime errors that do not require immediate action but should typically
+@@ -63,7 +63,7 @@ public function critical(string|\Stringable $message, array $context = []): void
+      *
+      * @return void
+      */
+-    public function error(string|\Stringable $message, array $context = []): void;
++    public function error(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Exceptional occurrences that are not errors.
+@@ -76,7 +76,7 @@ public function error(string|\Stringable $message, array $context = []): void;
+      *
+      * @return void
+      */
+-    public function warning(string|\Stringable $message, array $context = []): void;
++    public function warning(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Normal but significant events.
+@@ -86,7 +86,7 @@ public function warning(string|\Stringable $message, array $context = []): void;
+      *
+      * @return void
+      */
+-    public function notice(string|\Stringable $message, array $context = []): void;
++    public function notice(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Interesting events.
+@@ -98,7 +98,7 @@ public function notice(string|\Stringable $message, array $context = []): void;
+      *
+      * @return void
+      */
+-    public function info(string|\Stringable $message, array $context = []): void;
++    public function info(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Detailed debug information.
+@@ -108,7 +108,7 @@ public function info(string|\Stringable $message, array $context = []): void;
+      *
+      * @return void
+      */
+-    public function debug(string|\Stringable $message, array $context = []): void;
++    public function debug(string|\Stringable $message, array $context = []);
+ 
+     /**
+      * Logs with an arbitrary level.
+@@ -121,5 +121,5 @@ public function debug(string|\Stringable $message, array $context = []): void;
+      *
+      * @throws \Psr\Log\InvalidArgumentException
+      */
+-    public function log($level, string|\Stringable $message, array $context = []): void;
++    public function log($level, string|\Stringable $message, array $context = []);
+ }
+diff --git a/vendor/psr/log/src/LoggerTrait.php b/vendor/psr/log/src/LoggerTrait.php
+index 9c8733f9..66dfe483 100644
+--- a/vendor/psr/log/src/LoggerTrait.php
++++ b/vendor/psr/log/src/LoggerTrait.php
+@@ -15,12 +15,12 @@ trait LoggerTrait
+     /**
+      * System is unusable.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function emergency(string|\Stringable $message, array $context = []): void
++    public function emergency($message, array $context = []): void
+     {
+         $this->log(LogLevel::EMERGENCY, $message, $context);
+     }
+@@ -31,12 +31,12 @@ public function emergency(string|\Stringable $message, array $context = []): voi
+      * Example: Entire website down, database unavailable, etc. This should
+      * trigger the SMS alerts and wake you up.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function alert(string|\Stringable $message, array $context = []): void
++    public function alert($message, array $context = []): void
+     {
+         $this->log(LogLevel::ALERT, $message, $context);
+     }
+@@ -46,12 +46,12 @@ public function alert(string|\Stringable $message, array $context = []): void
+      *
+      * Example: Application component unavailable, unexpected exception.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function critical(string|\Stringable $message, array $context = []): void
++    public function critical($message, array $context = []): void
+     {
+         $this->log(LogLevel::CRITICAL, $message, $context);
+     }
+@@ -60,12 +60,12 @@ public function critical(string|\Stringable $message, array $context = []): void
+      * Runtime errors that do not require immediate action but should typically
+      * be logged and monitored.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function error(string|\Stringable $message, array $context = []): void
++    public function error($message, array $context = []): void
+     {
+         $this->log(LogLevel::ERROR, $message, $context);
+     }
+@@ -76,12 +76,12 @@ public function error(string|\Stringable $message, array $context = []): void
+      * Example: Use of deprecated APIs, poor use of an API, undesirable things
+      * that are not necessarily wrong.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function warning(string|\Stringable $message, array $context = []): void
++    public function warning($message, array $context = []): void
+     {
+         $this->log(LogLevel::WARNING, $message, $context);
+     }
+@@ -89,12 +89,12 @@ public function warning(string|\Stringable $message, array $context = []): void
+     /**
+      * Normal but significant events.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function notice(string|\Stringable $message, array $context = []): void
++    public function notice($message, array $context = []): void
+     {
+         $this->log(LogLevel::NOTICE, $message, $context);
+     }
+@@ -104,12 +104,12 @@ public function notice(string|\Stringable $message, array $context = []): void
+      *
+      * Example: User logs in, SQL logs.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function info(string|\Stringable $message, array $context = []): void
++    public function info($message, array $context = []): void
+     {
+         $this->log(LogLevel::INFO, $message, $context);
+     }
+@@ -117,12 +117,12 @@ public function info(string|\Stringable $message, array $context = []): void
+     /**
+      * Detailed debug information.
+      *
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      */
+-    public function debug(string|\Stringable $message, array $context = []): void
++    public function debug($message, array $context = []): void
+     {
+         $this->log(LogLevel::DEBUG, $message, $context);
+     }
+@@ -131,12 +131,12 @@ public function debug(string|\Stringable $message, array $context = []): void
+      * Logs with an arbitrary level.
+      *
+      * @param mixed  $level
+-     * @param string|\Stringable $message
++     * @param $message
+      * @param array  $context
+      *
+      * @return void
+      *
+      * @throws \Psr\Log\InvalidArgumentException
+      */
+-    abstract public function log($level, string|\Stringable $message, array $context = []): void;
++    abstract public function log($level, $message, array $context = []);
+ }

@@ -1,0 +1,76 @@
+diff --git a/lib/Drush/Command/DrushInputAdapter.php b/lib/Drush/Command/DrushInputAdapter.php
+index 801b58c32..08988e68d 100644
+--- a/lib/Drush/Command/DrushInputAdapter.php
++++ b/lib/Drush/Command/DrushInputAdapter.php
+@@ -51,7 +51,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      *  {@inheritdoc}
+      */
+-    public function getFirstArgument()
++    public function getFirstArgument(): ?string
+     {
+         return reset($this->arguments);
+     }
+@@ -59,7 +59,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      * {@inheritdoc}
+      */
+-    public function hasParameterOption($values, $onlyParams = false)
++    public function hasParameterOption(string|array $values, bool $onlyParams = false): bool
+     {
+         $values = (array) $values;
+ 
+@@ -75,7 +75,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      *  {@inheritdoc}
+      */
+-    public function getParameterOption($values, $default = false, $onlyParams = false)
++    public function getParameterOption(string|array $values, string|bool|int|float|array|null $default = false, bool $onlyParams = false)
+     {
+         $values = (array) $values;
+ 
+@@ -107,7 +107,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      *  {@inheritdoc}
+      */
+-    public function getArguments()
++    public function getArguments(): array
+     {
+         return $this->arguments;
+     }
+@@ -132,7 +132,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      *  {@inheritdoc}
+      */
+-    public function hasArgument($name)
++    public function hasArgument($name): bool
+     {
+         return isset($this->arguments[$name]);
+     }
+@@ -140,7 +140,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      *  {@inheritdoc}
+      */
+-    public function getOptions()
++    public function getOptions(): array
+     {
+         return $this->options;
+     }
+@@ -164,7 +164,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      *  {@inheritdoc}
+      */
+-    public function hasOption($name)
++    public function hasOption($name): bool
+     {
+         return isset($this->options[$name]);
+     }
+@@ -172,7 +172,7 @@ class DrushInputAdapter implements InputInterface
+     /**
+      *  {@inheritdoc}
+      */
+-    public function isInteractive()
++    public function isInteractive(): bool
+     {
+         return $this->interactive;
+     }

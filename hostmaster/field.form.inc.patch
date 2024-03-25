@@ -1,0 +1,11 @@
+--- /var/aegir/hostmaster-7.x-3.192+nmu1/modules/field/field.form.inc   2023-12-06 15:25:06.000000000 +0100
++++ field.form.inc      2024-02-20 12:11:12.437834696 +0100
+@@ -74,7 +74,7 @@
+     $field_state = array(
+       'field' => $field,
+       'instance' => $instance,
+-      'items_count' => count($items),
++      'items_count' => count((array) $items),
+       'array_parents' => array(),
+       'errors' => array(),
+     );
