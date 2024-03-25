@@ -1,6 +1,9 @@
+# Introduction
 Publication collaborative entre l'agence bluedrop.fr et Evolix.
-https://www.bluedrop.fr/content/usine-sites-installons-aegir-pour-drupal-10
-https://wiki.evolix.org/HowtoAegir
+
+[https://www.bluedrop.fr/content/usine-sites-installons-aegir-pour-drupal-10](https://www.bluedrop.fr/content/usine-sites-installons-aegir-pour-drupal-10) 
+
+[https://wiki.evolix.org/HowtoAegir](https://wiki.evolix.org/HowtoAegir)
 
 # Installation
 Pré-requis : Debian 10 ou Debian 11 avec PHP par défaut, on passera en PHP 8.2 dans un second temps (pour Debian 12 voir installation sous Debian 12).
